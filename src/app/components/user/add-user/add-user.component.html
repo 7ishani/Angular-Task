@@ -1,0 +1,56 @@
+<div class="col-md-6 user-container">
+	<h2 class="text-center">Add User</h2>
+
+  	<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    	<div class="form-group">
+      		<label for="id">Id:</label>
+      		<input type="text" formControlName="id" placeholder="Id" name="id" class="form-control" id="id">
+      		<span *ngIf="!id.valid && (id.touched || userSubmitted)"
+              class="error-block">
+                Please provide id
+      		</span>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="email">Email:</label>
+      		<input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      		<span *ngIf="!email.valid && (email.touched || userSubmitted)" class="error-block">
+        		<span *ngIf="email.hasError('required')">
+         	 		Please provide email id
+        		</span>
+        		<span *ngIf="email.hasError('email')">
+          			Please provide valid email id
+        		</span>
+      		</span>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="first_name">First Name:</label>
+      		<input formControlName="first_name" placeholder="First Name" name="first_name" class="form-control" id="first_name">
+      		<span *ngIf="!first_name.valid && (first_name.touched || userSubmitted)"
+              class="error-block">
+                Please provide first Name
+      		</span>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="last_name">Last Name:</label>
+      		<input formControlName="last_name" placeholder="Last name" name="last_name" class="form-control" id="last_name">
+      		<span *ngIf="!last_name.valid && (last_name.touched || userSubmitted)"
+              class="error-block">
+                Please provide Last Name
+     		 </span>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="avatar">Avatar:</label>
+      		<input  formControlName="avatar" placeholder="Avatar url" name="avatar" class="form-control" id="avatar">
+      		<span *ngIf="!avatar.valid && (avatar.touched || userSubmitted)"
+              class="error-block">
+                Please provide Avatar
+      		</span>
+    	</div>
+    	<button class="btn btn-primary">Add</button><br><br>
+  	</form>
+</div>
+
