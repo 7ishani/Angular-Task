@@ -28,6 +28,7 @@ export class ApiService {
 
     //create a new user
     createUser(user: User){
+      console.log("user : "+user);
         return this.http.post<any>(this.baseUrl, user
             ).subscribe(res =>{
                 console.log(res);
